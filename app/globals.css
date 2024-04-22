@@ -4,7 +4,6 @@
 
 body {
   @apply min-h-screen w-full;
-  @apply bg-slate-50;
 }
 @layer base {
   :root {
