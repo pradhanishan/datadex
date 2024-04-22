@@ -1,21 +1,32 @@
 'use client';
 
+import { register } from '@/actions';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { RegisterSchema } from '@/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { useState, useTransition } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 export function RegistrationForm() {
+  const [isPending, startTransition] = useTransition();
+
   const form = useForm<z.infer<typeof RegisterSchema>>({
     defaultValues: { username: '', email: '', password: '' },
     resolver: zodResolver(RegisterSchema),
   });
+
+  const onSubmit: SubmitHandler<z.infer<typeof RegisterSchema>> = (formData) => {
+    startTransition(() => {
+      register(formData);
+    });
+  };
+
   return (
     <Form {...form}>
-      <form className="space-y-4 w-[310px]">
+      <form className="space-y-4 w-[310px]" onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           control={form.control}
           name="username"
@@ -52,7 +63,7 @@ export function RegistrationForm() {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input placeholder="******" {...field} type="email" autoComplete="new-password" />
+                <Input placeholder="******" {...field} type="password" autoComplete="new-password" />
               </FormControl>
               <FormMessage />
             </FormItem>
