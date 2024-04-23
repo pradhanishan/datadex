@@ -2,6 +2,7 @@
 
 import prisma from '@/lib/db';
 import { RegisterSchema } from '@/schemas';
+import { userService } from '@/services';
 import bcrypt from 'bcryptjs';
 import { z } from 'zod';
 
@@ -11,20 +12,10 @@ export async function register(formData: z.infer<typeof RegisterSchema>) {
     if (!validatedFields.success) {
       return { error: 'invalid credentials' };
     }
-
     const { username, email, password } = formData;
-
-    const existingUser = await prisma.user.findFirst({ where: { OR: [{ email }, { name: username }] } });
-    if (existingUser) {
-      if (existingUser.email === email) {
-        return { error: 'You have already registered with this email' };
-      }
-      return { error: `username ${username}} is taken` };
-    }
-
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    const createdUser = await prisma.user.create({ data: { name: username, email, hashedPassword } });
+    const existingUser = await userService.getUserByNameOrEmail({ email, name: username });
+    const hashedPassword = await userService.hashPassword(password);
+    const createdUser = await userService.create({ name: username, email, hashedPassword: hashedPassword });
     return { success: 'verification email sent' };
   } catch (error) {
     console.log(error);
