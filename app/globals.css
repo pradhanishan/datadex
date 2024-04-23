@@ -4,9 +4,12 @@
 
 body {
   @apply min-h-screen w-full bg-white;
+  @apply dark:bg-slate-800;
 }
-:root {
+:root,
+html {
   @apply bg-white;
+  @apply dark:bg-slate-800;
 }
 
 @layer base {
