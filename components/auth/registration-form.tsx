@@ -6,11 +6,16 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Input } from '@/components/ui/input';
 import { RegisterSchema } from '@/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { CheckCircledIcon, ExclamationTriangleIcon } from '@radix-ui/react-icons';
 import { useState, useTransition } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 export function RegistrationForm() {
+  const [registrationFormResponse, setRegistrationFormResponse] = useState<{
+    error: string | undefined;
+    success: string | undefined;
+  }>({ error: undefined, success: undefined });
   const [isPending, startTransition] = useTransition();
 
   const form = useForm<z.infer<typeof RegisterSchema>>({
@@ -20,7 +25,9 @@ export function RegistrationForm() {
 
   const onSubmit: SubmitHandler<z.infer<typeof RegisterSchema>> = (formData) => {
     startTransition(() => {
-      register(formData);
+      register(formData).then((formResponse) => {
+        setRegistrationFormResponse({ error: formResponse.error, success: formResponse.success });
+      });
     });
   };
 
@@ -34,7 +41,13 @@ export function RegistrationForm() {
             <FormItem>
               <FormLabel>Username</FormLabel>
               <FormControl>
-                <Input placeholder="eg: johndoe@gmail.com" {...field} type="text" autoComplete="off" />
+                <Input
+                  placeholder="eg: johndoe@gmail.com"
+                  {...field}
+                  type="text"
+                  autoComplete="off"
+                  disabled={isPending}
+                />
               </FormControl>
               <FormDescription>Your username will be displayed publicly</FormDescription>
               <FormMessage />
@@ -49,7 +62,13 @@ export function RegistrationForm() {
             <FormItem>
               <FormLabel>Email Address</FormLabel>
               <FormControl>
-                <Input placeholder="eg: johndoe@gmail.com" {...field} type="email" autoComplete="off" />
+                <Input
+                  placeholder="eg: johndoe@gmail.com"
+                  {...field}
+                  type="email"
+                  autoComplete="off"
+                  disabled={isPending}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -63,12 +82,32 @@ export function RegistrationForm() {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input placeholder="******" {...field} type="password" autoComplete="new-password" />
+                <Input
+                  placeholder="******"
+                  {...field}
+                  type="password"
+                  autoComplete="new-password"
+                  disabled={isPending}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
+        {/* Form Response - Error */}
+        {registrationFormResponse.error && (
+          <FormMessage className="bg-destructive/15 p-2 rounded-sm flex gap-4 items-center text-xs text-destructive">
+            <ExclamationTriangleIcon />
+            {registrationFormResponse.error}
+          </FormMessage>
+        )}
+        {/* Form Response - Success */}
+        {registrationFormResponse.success && (
+          <FormMessage className="bg-emerald-300/20 p-2 rounded-sm flex gap-4 items-center text-xs text-emerald-800">
+            <CheckCircledIcon />
+            {registrationFormResponse.success}
+          </FormMessage>
+        )}
         {/* Submit Button */}
         <Button type="submit" className="w-full">
           register
