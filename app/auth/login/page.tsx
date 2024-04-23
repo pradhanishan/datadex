@@ -11,13 +11,13 @@ export default function Login() {
       <CardContent>
         <LoginForm />
       </CardContent>
-      <CardFooter className="group">
-        <Link href={'/auth/register'}>
+      <Link href={'/auth/register'}>
+        <CardFooter className="group">
           <span className="text-xs group-hover:text-sky-600 group-hover:underline group-hover:underline-offset-8 cursor-pointer">
             I don&apos;t have an account
           </span>
-        </Link>
-      </CardFooter>
+        </CardFooter>
+      </Link>
     </Card>
   );
 }

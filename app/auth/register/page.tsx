@@ -11,13 +11,13 @@ export default function Register() {
       <CardContent>
         <RegistrationForm />
       </CardContent>
-      <CardFooter className="group">
-        <Link href={'/auth/login'}>
+      <Link href={'/auth/login'}>
+        <CardFooter className="group">
           <span className="text-xs group-hover:text-sky-600 group-hover:underline group-hover:underline-offset-8 cursor-pointer">
             I already have an account
           </span>
-        </Link>
-      </CardFooter>
+        </CardFooter>
+      </Link>
     </Card>
   );
 }
