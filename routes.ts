@@ -9,7 +9,7 @@ export const apiAuthPrefix: string = '/api/auth';
  * List of public routes that should be accessible regardless of user authentication status.
  * @type {string[]}
  */
-export const publicRoutes: string[] = ['/', '/browse'];
+export const publicRoutes: string[] = ['/'];
 
 /**
  * List of authentication page routes from where a user can log in and register.
@@ -22,4 +22,4 @@ export const authRoutes: string[] = ['/auth/register', '/auth/login'];
  * Default redirect URL after the user logs in.
  * @type {string}
  */
-export const DEFAULT_LOGIN_REDIRECT_URL: string = '/browse';
+export const DEFAULT_LOGIN_REDIRECT_URL: string = '/dashboard';
