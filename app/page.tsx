@@ -9,16 +9,15 @@ export default function Home() {
         <CardHeader>
           <CardTitle className="text-3xl">Datadex</CardTitle>
           <CardDescription>
-            Know your data, the data behind <br />
-            your data, and the data behind <br />
-            the data behind your data
+            Document your database <br />
+            like never before <br />
           </CardDescription>
         </CardHeader>
 
         <CardContent>
-          <Button className="w-[200px]">
-            <Link href="/auth/login">login</Link>
-          </Button>
+          <Link href="/auth/login">
+            <Button className="w-[200px]">login</Button>
+          </Link>
         </CardContent>
         <CardFooter className="group">
           <p className="text-sm ">
