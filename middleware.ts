@@ -35,6 +35,11 @@ export default auth((req) => {
     return;
   }
 
+  // Redirect to url if the user is not logged in and trying to access blocked content
+  if (!isPublicRoute && !isLoggedIn) {
+    return Response.redirect(new URL('/auth/login', nextUrl));
+  }
+
   // Do not block access to public routes. If the user is logged in and accessing the landing page, redirect to the default login redirect URL
   if (isPublicRoute) {
     if (nextUrl.pathname === '/' && isLoggedIn) {
