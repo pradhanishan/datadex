@@ -12,7 +12,7 @@ export async function register(formData: z.infer<typeof RegisterSchema>) {
     if (!validatedFields.success) {
       return { error: 'invalid credentials' };
     }
-    const { username, email, password } = formData;
+    const { username, email, password } = validatedFields.data;
     const existingUser = await userService.getUserByNameOrEmail({ email, name: username });
     const hashedPassword = await userService.hashPassword(password);
     const createdUser = await userService.create({ name: username, email, hashedPassword: hashedPassword });
