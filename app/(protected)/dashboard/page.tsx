@@ -1,13 +1,12 @@
 import { logout } from '@/actions';
-import { auth } from '@/auth';
 import { Button } from '@/components/ui/button';
+import { getCurrentUser } from '@/lib/session';
 
 export default async function DashboardPage() {
-  const session = await auth();
-
+  const currentUser = await getCurrentUser();
   return (
     <div>
-      <div>{JSON.stringify(session)}</div>
+      <div>{JSON.stringify(currentUser)}</div>
       <form action={logout}>
         <Button>logout</Button>
       </form>

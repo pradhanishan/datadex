@@ -18,7 +18,6 @@ export async function register(formData: z.infer<typeof RegisterSchema>) {
     const createdUser = await userService.create({ name: username, email, hashedPassword: hashedPassword });
     return { success: 'verification email sent' };
   } catch (error) {
-    console.log(error);
     return { error: 'An internal server error occurred' };
   }
 }
