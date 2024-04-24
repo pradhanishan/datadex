@@ -22,4 +22,6 @@ export const authRoutes: string[] = ['/auth/register', '/auth/login'];
  * Default redirect URL after the user logs in.
  * @type {string}
  */
-export const DEFAULT_LOGIN_REDIRECT_URL: string = '/dashboard';
+export const DEFAULT_REDIRECT_URL: string = '/dashboard';
+
+export const LOGIN_PAGE_URL: string = '/auth/login';

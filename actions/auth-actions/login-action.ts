@@ -1,7 +1,7 @@
 'use server';
 
 import { signIn } from '@/auth';
-import { DEFAULT_LOGIN_REDIRECT_URL } from '@/routes';
+import { DEFAULT_REDIRECT_URL } from '@/routes';
 import { LoginSchema } from '@/schemas';
 import { AuthError } from 'next-auth';
 import { z } from 'zod';
@@ -19,7 +19,7 @@ export async function login(formData: z.infer<typeof LoginSchema>) {
     await signIn('credentials', {
       email,
       password,
-      redirectTo: DEFAULT_LOGIN_REDIRECT_URL,
+      redirectTo: DEFAULT_REDIRECT_URL,
     });
   } catch (error) {
     if (error instanceof AuthError) {

@@ -30,7 +30,7 @@ export default auth((req) => {
   // Do not block access to authentication page routes if the user is not logged in, otherwise redirect
   if (isAuthRoute) {
     if (isLoggedIn) {
-      return Response.redirect(new URL(routes.DEFAULT_LOGIN_REDIRECT_URL, nextUrl));
+      return Response.redirect(new URL(routes.DEFAULT_REDIRECT_URL, nextUrl));
     }
     return;
   }
@@ -43,7 +43,10 @@ export default auth((req) => {
   // Do not block access to public routes. If the user is logged in and accessing the landing page, redirect to the default login redirect URL
   if (isPublicRoute) {
     if (nextUrl.pathname === '/' && isLoggedIn) {
-      return Response.redirect(new URL(routes.DEFAULT_LOGIN_REDIRECT_URL, nextUrl));
+      return Response.redirect(new URL(routes.DEFAULT_REDIRECT_URL, nextUrl));
+    }
+    if (nextUrl.pathname === '/' && !isLoggedIn) {
+      return Response.redirect(new URL(routes.LOGIN_PAGE_URL, nextUrl));
     }
     return;
   }
