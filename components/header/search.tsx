@@ -13,8 +13,8 @@ import { MdKeyboardCommandKey } from 'react-icons/md';
 export function SearchBar() {
   return (
     <Button
-      className="bg-slate-200  text-nowrap hover:bg-slate-300 group border border-slate-300
-    dark:bg-slate-900 dark:border-slate-700 dark:hover:bg-slate-800  transition-all duration-300
+      className="bg-slate-200 dark:hover:bg-slate-800  text-nowrap hover:bg-slate-300 group border border-slate-300
+    dark:bg-slate-900 dark:border-slate-700  transition-all duration-300
     "
     >
       <div className="flex  gap-6 md:gap-2 justify-center items-center">

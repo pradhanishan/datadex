@@ -1,8 +1,8 @@
+import { Drawer } from '@/components/header/drawer';
 import { ModeToggle } from '@/components/header/mode-toggle';
+import { NavBar } from '@/components/header/nav-bar';
 import { Search } from '@/components/header/search';
 import React from 'react';
-
-import { NavBar } from './nav-bar';
 
 export default function Header() {
   return (
@@ -11,8 +11,9 @@ export default function Header() {
         className="flex justify-center md:justify-between gap-8 items-center px-2 py-4 bg-gray-200
       dark:bg-slate-900"
       >
-        <div>
-          <h1 className="hidden sm:inline font-semibold text-xl text-slate-800 dark:text-slate-300">Datadex</h1>
+        <div className="flex justify-center items-center">
+          <Drawer />
+          <h1 className="hidden lg:inline font-semibold text-xl text-slate-800 dark:text-slate-300">Datadex</h1>
         </div>
         <NavBar />
 

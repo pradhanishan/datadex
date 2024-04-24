@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { getCurrentUser } from '@/lib/session';
 
 export default async function DashboardPage() {
-  const currentUser = await getCurrentUser();
   return (
     <div>
       <form action={logout}>

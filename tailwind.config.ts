@@ -17,20 +17,6 @@ const config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
       colors: {
-        'pink-salmon': {
-          '50': '#fff1f3',
-          '100': '#ffe4e8',
-          '200': '#fecdd6',
-          '300': '#fca5b4',
-          '400': '#fb89a0',
-          '500': '#f34069',
-          '600': '#e01e54',
-          '700': '#bd1347',
-          '800': '#9e1341',
-          '900': '#87143e',
-          '950': '#4c051d',
-        },
-
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
