@@ -1,7 +1,7 @@
-import { Drawer } from '@/components/header/drawer';
-import { ModeToggle } from '@/components/header/mode-toggle';
-import { NavBar } from '@/components/header/nav-bar';
-import { Search } from '@/components/header/search';
+import { Drawer } from '@/components/layout/header/drawer';
+import { ModeToggle } from '@/components/layout/header/mode-toggle';
+import { NavBar } from '@/components/layout/header/nav-bar';
+import { Search } from '@/components/layout/header/search';
 import React from 'react';
 
 export default function Header() {

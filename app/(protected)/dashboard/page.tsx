@@ -1,7 +1,7 @@
 import { logout } from '@/actions';
-import Header from '@/components/header/header';
-import { ModeToggle } from '@/components/header/mode-toggle';
-import { Search } from '@/components/header/search';
+import Header from '@/components/layout/header/header';
+import { ModeToggle } from '@/components/layout/header/mode-toggle';
+import { Search } from '@/components/layout/header/search';
 import { Button } from '@/components/ui/button';
 import { getCurrentUser } from '@/lib/session';
 
