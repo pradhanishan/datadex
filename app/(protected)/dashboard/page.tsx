@@ -9,8 +9,6 @@ export default async function DashboardPage() {
   const currentUser = await getCurrentUser();
   return (
     <div>
-      {/* <div>{JSON.stringify(currentUser)}</div> */}
-      <Header />
       <form action={logout}>
         <Button>logout</Button>
       </form>

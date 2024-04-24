@@ -6,13 +6,13 @@ import { NavBar } from './nav-bar';
 
 export default function Header() {
   return (
-    <header>
+    <header className="">
       <div
-        className="flex justify-between items-center px-2 py-4 bg-gray-200
+        className="flex justify-center md:justify-between gap-8 items-center px-2 py-4 bg-gray-200
       dark:bg-slate-900"
       >
         <div>
-          <h1 className="font-semibold text-xl text-slate-800 dark:text-slate-300">Datadex</h1>
+          <h1 className="hidden sm:inline font-semibold text-xl text-slate-800 dark:text-slate-300">Datadex</h1>
         </div>
         <NavBar />
 
