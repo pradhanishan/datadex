@@ -1,4 +1,5 @@
 import React from 'react';
+import { BiSolidBookBookmark } from 'react-icons/bi';
 
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
