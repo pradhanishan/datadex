@@ -6,7 +6,7 @@ import React from 'react';
 
 export default function Header() {
   return (
-    <header className="">
+    <header className="w-full border border-b-slate-300">
       <div
         className="flex justify-center md:justify-between gap-8 items-center px-2 py-4 bg-gray-200
       dark:bg-slate-900"
