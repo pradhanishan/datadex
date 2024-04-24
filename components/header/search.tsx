@@ -8,8 +8,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { MdKeyboardCommandKey } from 'react-icons/md';
 
 export function SearchBar() {
@@ -19,7 +17,7 @@ export function SearchBar() {
     dark:bg-slate-900 dark:border-slate-700 dark:hover:bg-slate-800  transition-all duration-300
     "
     >
-      <div className="flex  gap-6 justify-center items-center">
+      <div className="flex  gap-6 md:gap-2 justify-center items-center">
         <span className="text-slate-600 text-md md:text-sm transition-all duration-300 dark:text-slate-400">
           search document
         </span>
