@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { subjectService } from '@/services';
+import Link from 'next/link';
 
 interface ISubjectCardProps {
   name: string;
@@ -16,9 +17,11 @@ function SubjectCard({ name, description }: ISubjectCardProps) {
       </CardHeader>
       <CardContent></CardContent>
       <CardFooter>
-        <Button className="w-1/2 sm:w-full" variant="secondary">
-          View
-        </Button>
+        <Link href={`/dashboard/${name.toLowerCase()}`} className="w-full">
+          <Button className="w-1/2 sm:w-full" variant="secondary">
+            View
+          </Button>
+        </Link>
       </CardFooter>
     </Card>
   );

@@ -45,12 +45,12 @@ const subjects: ISubject[] = [
       'Delve into detailed insights regarding Power BI dashboards, understanding their specific purposes, linked datasets, intended audience, update schedules, visualization configurations, and other essential characteristics for optimizing data presentation and consumption.',
   },
   {
-    name: 'Data Providers',
+    name: 'Providers',
     description:
       'Discover comprehensive details about the source systems collaborating with your workspace, including insights into the data they share, their integration methods, data formats, frequency of updates, and other essential attributes critical for data ingestion and management.',
   },
   {
-    name: 'Data Consumers',
+    name: 'Consumers',
     description:
       'Gain insights into the systems consuming data from your workspace, understanding their data consumption patterns, integration methods, data usage, and other pertinent details essential for optimizing data delivery and meeting consumer requirements.',
   },
@@ -60,7 +60,7 @@ const subjects: ISubject[] = [
       'Access a repository of frequently asked questions (FAQs) directed to your team, providing comprehensive answers to common queries, enabling efficient communication and knowledge sharing within your organization.',
   },
   {
-    name: 'Data Marts',
+    name: 'Marts',
     description: 'View data models categorized by subject areas.',
   },
 ];
